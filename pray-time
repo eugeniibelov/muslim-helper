@@ -1,0 +1,21 @@
+from datetime import datetime
+from prayer_times_calculator import PrayerTimesCalculator
+
+
+if __name__ == "__main__":
+    # Укажите координаты Воронежа
+    latitude = 51.6612
+    longitude = 39.1962
+
+    calculator = PrayerTimesCalculator(latitude, longitude, 'isna', str(datetime.now().date()), 'hanafi')
+    # Получите время намаза
+    prayer_times=calculator.fetch_prayer_times()
+
+
+    # Вывод времени намаза
+    print("Расписание намаза для Воронежа:")
+    print(f"Фаджр: {prayer_times['Fajr']}")
+    print(f"Зухр: {prayer_times['Dhuhr']}")
+    print(f"Аср: {prayer_times['Asr']}")
+    print(f"Магриб: {prayer_times['Maghrib']}")
+    print(f"Иша: {prayer_times['Isha']}")
